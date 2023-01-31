@@ -4,3 +4,9 @@
 
 This repository contains various boilerplates that you can use to kick-start your project 
 or get some inspiration about build systems and the basic structure of different project types.
+
+## List of boilerplates
+
+### [Ethereum + Hardhat + Solidity + TypeScript](./eth_hardhat_ts)
+
+Smart contract development environment for Ethereum-ish blockchain network. 
