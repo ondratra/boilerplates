@@ -1,4 +1,7 @@
 {
+  "name": "boilerplate-ethereum-hardhat-solidity-typescript",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "build": "yarn hardhat compile",
     "test": "yarn hardhat test",
@@ -6,7 +9,7 @@
     "checks": "yarn checks:lint",
     "checks:lint": "eslint \"src/**/*.ts*\"",
     "checks:lint:fix": "yarn checks:lint --fix",
-    "//prepare": "//husky install can only ne run after this directory is copied from boilerplate repo to target repo",
+    "//prepare": "//husky install can only be run after this directory is copied from boilerplate repo to target repo",
     "prepare": "husky install"
   },
   "dependencies": {
