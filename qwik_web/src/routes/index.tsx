@@ -1,6 +1,6 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { Link } from '@builder.io/qwik-city';
+import { component$ } from '@builder.io/qwik'
+import type { DocumentHead } from '@builder.io/qwik-city'
+import { Link } from '@builder.io/qwik-city'
 
 export default component$(() => {
   return (
@@ -98,10 +98,7 @@ export default component$(() => {
             <code>npm run qwik add static</code>
           </td>
           <td>
-            <a
-              href="https://qwik.builder.io/qwikcity/static-site-generation/overview/"
-              target="_blank"
-            >
+            <a href="https://qwik.builder.io/qwikcity/static-site-generation/overview/" target="_blank">
               Static Site Generation (SSG)
             </a>
           </td>
@@ -141,8 +138,8 @@ export default component$(() => {
         Blow my mind 🤯
       </Link>
     </div>
-  );
-});
+  )
+})
 
 export const head: DocumentHead = {
   title: 'Welcome to Qwik',
@@ -152,4 +149,4 @@ export const head: DocumentHead = {
       content: 'Qwik site description',
     },
   ],
-};
+}
