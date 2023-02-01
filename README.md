@@ -10,3 +10,7 @@ or get some inspiration about build systems and the basic structure of different
 ### [Ethereum + Hardhat + Solidity + TypeScript](./eth_hardhat_ts)
 
 Smart contract development environment for Ethereum-ish blockchain network. 
+
+### [Qwik](./qwik_web)
+
+Web application development environment using Qwik as a cornerstone technology.
