@@ -16,7 +16,9 @@
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "//prepare": "//husky install can only be run after this directory is copied from boilerplate repo to target repo",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.16.2",
