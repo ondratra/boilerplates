@@ -1,0 +1,8 @@
+.activeChainContainer {
+  color: blue;
+  font-weight: bold;
+}
+
+.switchButton {
+  margin-left: 5px;
+}

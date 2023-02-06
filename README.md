@@ -14,3 +14,7 @@ Smart contract development environment for Ethereum-ish blockchain network.
 ### [Qwik](./qwik_web)
 
 Web application development environment using Qwik as a cornerstone technology.
+
+### [Qwik + Ethers](./qwik_web3_ethers)
+
+Web3 application development environment using Qwik for web-related stuff and Ethers for blockchain interaction.
