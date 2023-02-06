@@ -1,4 +1,7 @@
 {
+  "name": "boilerplates",
+  "version": "1.0.0",
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "checks": "./checks.sh",
     "prepare": "husky install"
