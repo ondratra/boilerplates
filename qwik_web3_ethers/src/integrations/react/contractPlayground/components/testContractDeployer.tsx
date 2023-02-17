@@ -15,14 +15,14 @@ export function TestContractDeployer(props: { onContractDeploy: (contractInfo: C
   const ONE_MINUTE = 60
 
   const lockedAmount = ONE_GWEI
-  const unlockTime = Math.floor(Date.now() / 1000) + ONE_MINUTE
 
-  const deployArgs = unlockTime
   const factory = new ContractFactory(lockContractJson.abi, lockContractJson.bytecode, provider.getSigner())
 
   const onClick = async () => {
-    const contract = await factory.deploy(deployArgs, { value: lockedAmount, ...noGasLimit })
+    const unlockTime = Math.floor(Date.now() / 1000) + ONE_MINUTE
+    const deployArgs = unlockTime
 
+    const contract = await factory.deploy(deployArgs, { value: lockedAmount, ...noGasLimit })
     await contract.deployTransaction.wait()
 
     const betterContract = new Contract(contract.address, lockContractJson.abi, provider.getSigner())
