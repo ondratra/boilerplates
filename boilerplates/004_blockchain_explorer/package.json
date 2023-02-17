@@ -1,0 +1,11 @@
+{
+  "name": "nftburn-block-explorer",
+  "version": "0.1.0",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "checks": "echo Everything ok",
+    "start": "docker-compose -f docker-compose-no-build-hardhat-network.yml up -d",
+    "pause": "docker-compose -f docker-compose-no-build-hardhat-network.yml down",
+    "stop": "docker-compose -f docker-compose-no-build-hardhat-network.yml down -v"
+  }
+}

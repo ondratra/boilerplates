@@ -18,3 +18,7 @@ Web application development environment using Qwik as a cornerstone technology.
 ### [003 - Qwik + Ethers](./boilerplates/003_qwik_web3_ethers)
 
 Web3 application development environment using Qwik for web-related stuff and Ethers for blockchain interaction.
+
+### [004 - Blockscout](./boilerplates/004_blockchain_explorer)
+
+Blockchain explorer configured to work together with Hardhat testing blockchain (see [001](./boilerplates/001_eth_hardhat_ts)).
