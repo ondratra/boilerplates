@@ -7,14 +7,14 @@ or get some inspiration about build systems and the basic structure of different
 
 ## List of boilerplates
 
-### [Ethereum + Hardhat + Solidity + TypeScript](./eth_hardhat_ts)
+### [001 - Ethereum + Hardhat + Solidity + TypeScript](./boilerplates/001_eth_hardhat_ts)
 
 Smart contract development environment for Ethereum-ish blockchain network. 
 
-### [Qwik](./qwik_web)
+### [002 - Qwik](./boilerplates/002_qwik_web)
 
 Web application development environment using Qwik as a cornerstone technology.
 
-### [Qwik + Ethers](./qwik_web3_ethers)
+### [003 - Qwik + Ethers](./boilerplates/003_qwik_web3_ethers)
 
 Web3 application development environment using Qwik for web-related stuff and Ethers for blockchain interaction.
