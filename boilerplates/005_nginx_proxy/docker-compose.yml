@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  webserver:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      nginx-proxy-webserver-to-host:
+        ipv4_address: 172.25.0.100
+    volumes:
+      - nginx-confs:/etc/nginx/conf.d/:ro
+      - nginx-logs:/var/log/nginx:rw
+      - certificates:/mnt/ssl/:ro
+      - certbot-www:/var/www/certbot/:rw
+
+  # TODO: this service could use `extends: webserver` and remove exposed ports
+  #       when this issue will get solved the config can be simplified https://github.com/docker/compose/issues/3729
+  validate-nginx-config:
+    image: nginx:latest
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - nginx-confs:/etc/nginx/conf.d/:ro
+      - certificates:/mnt/ssl/:ro
+    command: nginx -t -c /etc/nginx/nginx.conf
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - certbot-logs:/var/log/nginx:rw
+      - certbot-www:/var/www/certbot/:rw
+      - certificates:/etc/letsencrypt/:rw
+    environment:
+      # set domain that you want SSL certificate to be issued for
+      - DOMAIN=$${DOMAIN:?No domain set in docker-compose.yml}
+      # set e-mail that LetsEncrypt will use to try to inform you about certificate expiration
+      - EMAIL=$${EMAIL:?No e-mail set in docker-compose.yml}
+    command: >-
+             certonly --reinstall --webroot --webroot-path=/var/www/certbot
+             --email ${EMAIL} --agree-tos --no-eff-email
+             -d ${DOMAIN}
+
+networks:
+  nginx-proxy-webserver-to-host:
+    name: nginx-proxy-webserver-to-host
+    external: true
+
+volumes:
+  nginx-confs:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumes/nginx/conf.d
+      o: bind
+
+  nginx-logs:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumes/nginx/logs
+      o: bind
+
+  certificates:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./certificates
+      o: bind
+
+  certbot-www:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumes/certbot/www
+      o: bind
+
+  certbot-logs:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./volumes/certbot/logs
+      o: bind

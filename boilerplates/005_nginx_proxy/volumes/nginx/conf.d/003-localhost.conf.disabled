@@ -1,0 +1,42 @@
+# TODO: this file has to be disabled for now because it catches all request on all domains from unknown reason,
+#       thus breaking them
+
+server {
+    listen 172.25.0.100:80;
+    # TODO: support ipv6 - only for "localhost"
+    #       (for this docker container, other containers in docker-compose.yaml and, host's localhost)
+    #       Using next line gives error `1#1: bind() to [::1]:80 failed (99: Cannot assign requested address)`
+    # listen [::1]:80;
+
+    server_name localhost;
+    server_tokens off; # don't indicate nginx and it's version in http headers
+
+    error_log /var/log/localhost_errors.log;
+
+    location / {
+        return 301 https://localhost$request_uri;
+    }
+}
+
+server {
+    listen 172.25.0.100:443 ssl http2;
+    # TODO: support ipv6 - only for "localhost"
+    #       (for this docker container, other containers in docker-compose.yaml and, host's localhost)
+    # listen [::1]:443 ssl http2; ???
+
+    server_name localhost;
+
+    error_log /var/log/localhost_errors.log;
+
+    ssl_certificate /mnt/ssl/localhost.crt;
+    ssl_certificate_key /mnt/ssl/localhost.key;
+
+    location / {
+        proxy_pass http://host.docker.internal:5173;
+
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $https_wss_connection;
+    }
+}

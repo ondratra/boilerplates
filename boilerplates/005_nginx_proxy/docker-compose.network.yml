@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  # this service is dummy and is only meant to ensure creating of network
+  network-maker:
+    # use smallest image possible here
+    image: cogniteev/echo:latest
+    networks:
+      - nginx-proxy-webserver-to-host
+    command: "echo done"
+
+networks:
+  nginx-proxy-webserver-to-host:
+    name: nginx-proxy-webserver-to-host
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.25.0.0/24
