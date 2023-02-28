@@ -8,5 +8,6 @@
   },
   "dependencies": {
     "husky": "^8.0.3"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
