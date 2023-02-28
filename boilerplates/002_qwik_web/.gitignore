@@ -1,6 +1,7 @@
 dist
 
 # yarn-related
+node_modules
 .pnp.*
 .yarn/*
 !.yarn/releases
