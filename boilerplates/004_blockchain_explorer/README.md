@@ -1,4 +1,7 @@
-# NFT burn - block explorer
+# Blockchain explorer
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+
 The block explorer is an instance of [BlockScout](https://github.com/blockscout/blockscout) targeting the local Hardhat testing network.
 
 **WARNING:** This project is not meant to be used in a production environment! For production use, a unique `SECRET_KEY_BASE` needs to be generated, and all settings need to be tweaked, but it's unclear how many changes are required for this project to be secure.

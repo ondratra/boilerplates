@@ -22,3 +22,7 @@ Web3 application development environment using Qwik for web-related stuff and Et
 ### [004 - Blockscout](./boilerplates/004_blockchain_explorer)
 
 Blockchain explorer configured to work together with Hardhat testing blockchain (see [001](./boilerplates/001_eth_hardhat_ts)).
+
+### [005 - Nginx proxy for web demos](./boilerplates/005_nginx_proxy)
+
+Dockerized Nginx server preconfigured to serve other web services running in the Docker.
