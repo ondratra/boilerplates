@@ -1,0 +1,15 @@
+# NOTE: copy this file into new file `XXX-name.conf` where XXX is unique number used to order configs and name is your
+#       desired virtual host name
+#       5XX numbers are dedicated for local configuration - that's what you want to use on VPS, local machine, etc.
+# NOTE: replace __MY_DOMAIN__ with your desired domain and further change the configuration as needed,
+        then set configuration as needed near __CHANGE_ME__ tag and then remove it
+# NOTE: delete these notes after you copy this template
+
+server {
+    __CHANGE_ME__
+    listen 8545;
+
+    error_log /var/log/nginx/__MY_DOMAIN___stream_errors.log;
+
+    proxy_pass host.docker.internal:8545;
+}

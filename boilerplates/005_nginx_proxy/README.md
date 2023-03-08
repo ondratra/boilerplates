@@ -68,8 +68,13 @@ Replace `__MY_DOMAIN__` in the following command and set a unique numeric code i
 should be in range `<500, 599>` so it is ignored by git 
 (see [volumes/nginx/conf.d/.gitignore](volumes/nginx/conf.d/.gitignore)).
 
+For proxying HTTP and HTTPS, it's best to start by adjusting the template `virtualHost.conf` and for other TCP or UDP
+protocols start by adjusting `virtualHost_stream.conf`.
+
 ```
 cp volumes/nginx/conf.d/virtualHost.conf.template volumes/nginx/conf.d/500-__MY_DOMAIN__.conf
+# and/or
+cp volumes/nginx/conf.d/virtualHost_stream.conf.template volumes/nginx/conf.d/501-__MY_DOMAIN___stream.conf
 
 # now manually edit the new config file,y for example:
 # vim volumes/nginx/conf.d/500-__MY_DOMAIN__.conf

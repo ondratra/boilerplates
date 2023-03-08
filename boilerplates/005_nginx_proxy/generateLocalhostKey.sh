@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
 openssl req -x509 -out certificates/localhost.crt -keyout certificates/localhost.key \
   -newkey rsa:2048 -nodes -sha256 \
   -subj '/CN=localhost' -extensions EXT -config <( \

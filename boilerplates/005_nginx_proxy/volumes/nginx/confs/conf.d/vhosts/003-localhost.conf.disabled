@@ -11,7 +11,7 @@ server {
     server_name localhost;
     server_tokens off; # don't indicate nginx and it's version in http headers
 
-    error_log /var/log/localhost_errors.log;
+    error_log /var/log/nginx/localhost_errors.log;
 
     location / {
         return 301 https://localhost$request_uri;
@@ -26,7 +26,7 @@ server {
 
     server_name localhost;
 
-    error_log /var/log/localhost_errors.log;
+    error_log /var/log/nginx/localhost_errors.log;
 
     ssl_certificate /mnt/ssl/localhost.crt;
     ssl_certificate_key /mnt/ssl/localhost.key;

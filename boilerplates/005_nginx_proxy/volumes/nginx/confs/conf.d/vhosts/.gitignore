@@ -1,0 +1,2 @@
+# `5XX-name.conf` filenames are dedicated for local configuration that is not meant to be commited into git
+5*-*.conf
